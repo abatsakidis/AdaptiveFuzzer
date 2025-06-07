@@ -63,19 +63,19 @@ python adaptive_fuzzer.py [OPTIONS] URL
 
 ## How It Works
 
-#    Initialization:
+###   Initialization:
     Starts with a predefined set of seed payloads known to trigger common vulnerabilities (SQL injection, XSS, path traversal, etc.).
 
-#    Payload Testing:
+###    Payload Testing:
     Each payload is sent as either a GET or POST request to the target URL. The response is scanned for error keywords and HTTP error status codes to assign a "score" indicating potential interest.
 
-#    Model Training:
+###    Model Training:
     The character-level RNN model is trained on payloads and their associated scores to learn which payloads are more likely to elicit interesting responses.
 
- #   Payload Evolution:
+###   Payload Evolution:
     Using the model's predictions combined with historic feedback, the tool selects payloads to mutate via character insertion, deletion, replacement, or swapping, expanding the corpus.
 
- #   Iteration:
+###   Iteration:
     Steps 2–4 repeat for a configurable number of iterations or until no new interesting payloads are found.
 
 ## Example
